@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "anyarchive"
+version = "0.1.0"
+description = "Work with almost any archive"
+authors = ["Khalid Elborai <elboraikhalid@gmail.com>"]
+license = "GNU General Public License v2.0"
+readme = "README.md"
+repository = "https://github.com/khalidelborai/anyarchive.git"
+keywords = [
+    'APFS',
+    'AR',
+    'ARJ',
+    'CAB',
+    'CHM',
+    'CPIO',
+    'CramFS',
+    'DMG',
+    'EXT',
+    'FAT',
+    'GPT',
+    'HFS',
+    'IHEX',
+    'ISO',
+    'LZH',
+    'LZMA',
+    'MBR',
+    'MSI',
+    'NSIS',
+    'NTFS',
+    'QCOW2',
+    'RAR',
+    'RPM',
+    'SquashFS',
+    'UDF',
+    'UEFI',
+    'VDI',
+    'VHD',
+    'VHDX',
+    'VMDK',
+    'XAR',
+    '7z',
+    'XZ',
+    'BZIP2',
+    'GZIP',
+    'TAR',
+    'ZIP',
+    'WIM',
+    'Z',
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+py7zr = "^0.20.6"
+rarfile = "^4.0"
+filetype = "^1.2.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
