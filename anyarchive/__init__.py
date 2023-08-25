@@ -1,4 +1,3 @@
-from functools import lru_cache
 from pathlib import Path
 from typing import Iterable, List, Union
 
@@ -17,7 +16,6 @@ class Archive:
         self.password = password
         self.file_type = get_file_type(self.file_path)
 
-    @lru_cache(maxsize=1)
     def list(self) -> List[Info]:
         """
         List files in archive
@@ -25,7 +23,6 @@ class Archive:
         """
         return list_archive(self.file_path, self.password)
 
-    @lru_cache(maxsize=1)
     def requires_password(self) -> bool:
         """
         Check if archive requires password
@@ -33,7 +30,6 @@ class Archive:
         """
         return requires_password(self.file_path)
 
-    @lru_cache(maxsize=1)
     def verify_password(self, password: str) -> bool:
         """
         Verify password of archive
@@ -44,14 +40,6 @@ class Archive:
 
     def __enter__(self):
         return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.close()
-
-    def close(self):
-        self.list.cache_clear()
-        self.requires_password.cache_clear()
-        self.verify_password.cache_clear()
 
     def __repr__(self) -> str:
         return f"Archive({self.file_path})"
